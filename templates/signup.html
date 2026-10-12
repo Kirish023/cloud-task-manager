@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up - Cloud Task Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+</head>
+<body>
+    <div class="auth-wrapper">
+        <div class="auth-left">
+            <div class="star"></div><div class="star"></div><div class="star"></div>
+            <div class="star"></div><div class="star"></div><div class="star"></div>
+            <h2>☁️ Cloud Task Manager</h2>
+            <p>Join to start organizing your tasks</p>
+        </div>
+        <div class="auth-right">
+            <p class="greeting-small">Hello!</p>
+            <h1 id="greeting">Create Account</h1>
+            <h3>Sign Up <span>For Free</span></h3>
+            <form method="POST">
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">SIGN UP</button>
+            </form>
+            <p class="switch-link">Already have an account? <a href="/login">Log in</a></p>
+        </div>
+    </div>
+</body>
+</html>

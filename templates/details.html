@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Started - Cloud Task Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+</head>
+<body>
+    <div class="auth-wrapper">
+        <div class="auth-left">
+            <div class="star"></div><div class="star"></div><div class="star"></div>
+            <div class="star"></div><div class="star"></div><div class="star"></div>
+            <div class="star"></div><div class="star"></div><div class="star"></div>
+            <div class="star"></div><div class="star"></div><div class="star"></div>
+            <div class="shooting-star"></div>
+            <h2>☁️ Cloud Task Manager</h2>
+            <p>Tell us a bit about you to get started</p>
+        </div>
+        <div class="auth-right">
+            <p class="greeting-small">Hello!</p>
+            <h1 id="greeting">Welcome</h1>
+            <h3>Enter Your <span>Details</span></h3>
+            <form method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="number" name="age" placeholder="Your Age" min="1" required>
+                <input type="text" name="email" placeholder="Your Email (any you like)" required>
+                <button type="submit">Continue →</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const hour = new Date().getHours();
+        let greetingText = "Good Evening";
+        if (hour < 12) greetingText = "Good Morning";
+        else if (hour < 17) greetingText = "Good Afternoon";
+        document.getElementById("greeting").textContent = greetingText;
+    </script>
+</body>
+</html>

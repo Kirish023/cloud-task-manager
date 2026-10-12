@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cloud Task Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>☁️ Hi {{ name }}, <span id="greeting"></span></h1>
+
+        <form class="task-form" method="POST" action="/add">
+            <input type="text" name="task" placeholder="What needs to be done?" required>
+            <button type="submit">Add</button>
+        </form>
+
+        <ul class="task-list">
+            {% for task in tasks %}
+                <li class="task-item {% if task[3] == 1 %}completed{% endif %}">
+                    <div class="task-left">
+                        <a href="/complete/{{ task[0] }}" class="tick-box">
+                            <span class="tick-mark">✓</span>
+                        </a>
+                        <span class="task-text">{{ task[1] }}</span>
+                    </div>
+                    <a href="/delete/{{ task[0] }}" class="delete-link">Delete</a>
+                </li>
+            {% else %}
+                <li class="empty-state">No tasks yet — add one above!</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        const hour = new Date().getHours();
+        let greetingText = "Good Evening";
+        if (hour < 12) greetingText = "Good Morning";
+        else if (hour < 17) greetingText = "Good Afternoon";
+        document.getElementById("greeting").textContent = greetingText;
+    </script>
+</body>
+</html>

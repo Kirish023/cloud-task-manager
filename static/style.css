@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 60px;
+}
+
+.container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 32px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.task-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.task-form input {
+    flex: 1;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+.task-form input:focus {
+    border-color: #764ba2;
+}
+
+.task-form button {
+    padding: 12px 20px;
+    background: #764ba2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.task-form button:hover {
+    background: #5e3a82;
+}
+
+.task-list {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f7f7fb;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background 0.3s ease;
+}
+
+.task-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tick-box {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    border: 2px solid #764ba2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.tick-mark {
+    opacity: 0;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    transform: scale(0);
+    transition: all 0.25s ease;
+}
+
+.task-item.completed .tick-box {
+    background: #764ba2;
+    animation: pop 0.4s ease;
+}
+
+.task-item.completed .tick-mark {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.task-item.completed {
+    background: #f0ebf7;
+    animation: flash 0.5s ease;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #999;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.4); }
+    100% { transform: scale(1); }
+}
+
+@keyframes flash {
+    0% { background: #d9c8ef; }
+    100% { background: #f0ebf7; }
+}
+
+.task-text {
+    color: #333;
+    font-size: 15px;
+    word-break: break-word;
+}
+
+.delete-link {
+    color: #e74c3c;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.delete-link:hover {
+    background: #fdecea;
+}
+
+.empty-state {
+    text-align: center;
+    color: #999;
+    padding: 20px 0;
+    font-size: 14px;
+}
